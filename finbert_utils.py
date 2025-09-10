@@ -15,11 +15,12 @@ def estimate_sentiment(news):
             "logits"
         ]
         result = torch.nn.functional.softmax(torch.sum(result, 0), dim=-1)
-        probability = result[torch.argmax(result)]
+        probability = result[torch.argmax(result)].item()  # <-- convert tensor to float
         sentiment = labels[torch.argmax(result)]
         return probability, sentiment
     else:
-        return 0, labels[-1]
+        return 0.0, labels[-1]  # make sure to return a float here too
+
 
 
 if __name__ == "__main__":
