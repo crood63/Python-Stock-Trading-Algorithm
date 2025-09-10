@@ -1,0 +1,6 @@
+pandas
+lumibot
+alpaca-trade-api
+timedelta
+transformers
+torch
